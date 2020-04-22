@@ -2,12 +2,7 @@ export type ConditionalResult = boolean;
 
 export type ConditionalFunction = () => ConditionalResult;
 
-export type IfProps<Data = any> = {
-    /**
-     * React Children to be rendered if the `condition`
-     * prop is true.
-     */
-    children?: React.ReactNode;
+export type ConditionalOptions<Data> = {
     /**
      * A boolean conditional to be used in combination with
      * the `children` prop.
@@ -19,10 +14,18 @@ export type IfProps<Data = any> = {
      * as defined by lodash's `isEmpty` utility.
      */
     data?: Data;
+}
+
+export type ConditionalElement<Data> = {
+    /**
+     * React Children to be rendered if the `condition`
+     * prop is true.
+     */
+    children?: React.ReactNode;
     /**
      * The `JSX.Element` to be rendered if the `data` prop is 
      * not empty. The function will recieve the `data` prop
      * as an argument.
      */
     render?: (data: Data) => JSX.Element;
-};
+}
