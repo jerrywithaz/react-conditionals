@@ -28,13 +28,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "prettier": "^2.0.5",
     "typescript": "3.8.3"
   },
   "scripts": {
     "build": "rm -f -r dist && yarn lint && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint": "eslint . --ext .ts,.tsx",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test"
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test",
+    "preversion": "yarn lint"
   },
   "repository": {
     "type": "git",
