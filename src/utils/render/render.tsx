@@ -2,7 +2,8 @@ import React from 'react';
 import { RenderProps } from './render.types';
 
 /**
- * Renders the desired component.
+ * Renders either the `children` or the `render` prop
+ * of a Conditional Component.
  */
 function render<Data = any>(props: RenderProps<Data>): JSX.Element | null {
 

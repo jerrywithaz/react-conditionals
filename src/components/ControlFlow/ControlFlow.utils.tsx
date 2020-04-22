@@ -1,29 +1,42 @@
 import React from 'react';
-import { IfProps } from '../If';
 import invariant from 'invariant';
 import getConditionResult from '../../utils/getConditionResult';
+import { IfProps } from '../If';
 import { ElseIfProps } from '../ElseIf';
 
+/**
+ * Validates a control flow component and ensures that it is in the correct position.
+ * @param childType The current `React Component`.
+ * @param index The index of the current child.
+ * @param numberOfChildren The number of children.
+ */
 function validateDecisionStructure(
     childType: React.ComponentType, 
     index: number,
     numberOfChildren: number
 ): void {
+
     const displayName = childType.displayName;
+
     const ifFirstChild = index === 0;
     const isMiddleChild = index > 0 && index < numberOfChildren - 1;
     const isLastChild = index === numberOfChildren - 1;
-    const firstChildIsNotIfStatement = ifFirstChild ? displayName === "If" : true;
-    const allOtherChildrenExceptLastAreElseIf = isMiddleChild ? displayName === "ElseIf" : true;
-    const lastChildShouldBeElseOrElseIf = isLastChild ? displayName === "ElseIf" || displayName === "Else" : true;
+
+    const firstChildIsNotIfComponent = ifFirstChild ? displayName === "If" : true;
+    const middleChildAreNotElseIfComponents = isMiddleChild ? displayName === "ElseIf" : true;
+    const lastChildShouldBeElseOrElseIfComponent = isLastChild ? displayName === "ElseIf" || displayName === "Else" : true;
     
     
-    invariant(firstChildIsNotIfStatement, "The first child of a `Decision` should be an `If`.");
-    invariant(allOtherChildrenExceptLastAreElseIf, "All children in a `Decision` after the first `If` should be an `ElseIf`.");
-    invariant(lastChildShouldBeElseOrElseIf, "The last child of a `Decision` should be either an `ElseIf` or an `Else`.");
+    invariant(firstChildIsNotIfComponent, "The first child of a `ControlFlow` should be an `If` components.");
+    invariant(middleChildAreNotElseIfComponents, "All middle children of a `ControlFlow` should be `ElseIf` components.");
+    invariant(lastChildShouldBeElseOrElseIfComponent, "The last child of a `ControlFlow` should be either an `ElseIf` or an `Else`.");
 
 }
 
+/**
+ * Evaluates each control statement component and returns the one that should be rendered.
+ * @param children The `React` children to use.
+ */
 export function getDecisionComponent(children: React.ReactNode): React.ReactNode {
 
     const numberOfChildren = React.Children.count(children);
