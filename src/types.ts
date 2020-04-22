@@ -27,5 +27,5 @@ export type ConditionalElement<Data> = {
      * not empty. The function will recieve the `data` prop
      * as an argument.
      */
-    render?: (data: Data) => JSX.Element;
+    render?: (data: NonNullable<Data>) => JSX.Element;
 }
