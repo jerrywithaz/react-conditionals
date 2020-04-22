@@ -1,0 +1,12 @@
+{
+  "name": "@jerrywithaz/react-conditionals",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "conditionals"
+  ],
+  "description": "Declaritive conditional statements for React.",
+  "main": "src/index.ts",
+  "author": "Zerry Hogan",
+  "license": "MIT"
+}
