@@ -16,7 +16,7 @@ const data = number > 50 ? {
     number: number
 } : null;
 
-export const withBooleanConditions = () => (
+export const withBooleanConditions = (): JSX.Element => (
     <ControlFlow>
         <If condition={number == 0}>
             <div>Number was 0</div>
@@ -36,7 +36,7 @@ export const withBooleanConditions = () => (
     </ControlFlow>
 );
 
-export const withOpionalData = () => (
+export const withOpionalData = (): JSX.Element => (
     <ControlFlow>
         <If data={data} render={data => (
             <div>Number was {data.number}</div>

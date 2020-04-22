@@ -1,5 +1,5 @@
 import React from 'react';
-import If, { IfProps } from '../If';
+import { IfProps } from '../If';
 import invariant from 'invariant';
 import getConditionResult from 'src/utils/getConditionResult';
 import { ElseIfProps } from '../ElseIf';
@@ -8,7 +8,7 @@ function validateDecisionStructure(
     childType: React.ComponentType, 
     index: number,
     numberOfChildren: number
-) {
+): void {
     const displayName = childType.displayName;
     const ifFirstChild = index === 0;
     const isMiddleChild = index > 0 && index < numberOfChildren - 1;
