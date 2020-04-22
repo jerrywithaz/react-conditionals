@@ -16,4 +16,6 @@ function If<Data = any>(
 
 }
 
+If.displayName = "If";
+
 export default If;

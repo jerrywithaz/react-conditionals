@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import { ControlFlowProps } from './ControlFlow.types';
+import React from 'react';
+import { ControlFlowComponent } from './ControlFlow.types';
 import { getDecisionComponent } from './ControlFlow.utils';
 
 /**
  * Evaluates a set of `If`, `ElseIf` or `Else` components.
  */
-const ControlFlow: FunctionComponent<ControlFlowProps> = ({
+const ControlFlow: ControlFlowComponent = ({
     children
 }): JSX.Element => {
 
@@ -19,5 +19,4 @@ const ControlFlow: FunctionComponent<ControlFlowProps> = ({
     
 };
 
-export { ControlFlow };
 export default ControlFlow;

@@ -12,4 +12,6 @@ function ElseIf<Data = any> (
     return <If<Data> {...props}/>
 }
 
+ElseIf.displayName = "ElseIf";
+
 export default ElseIf;

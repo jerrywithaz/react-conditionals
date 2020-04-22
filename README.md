@@ -45,7 +45,7 @@ const Component = () => {
 The `ControlFlow` component is for managing the control flow of a series of control statements i.e. if, elseif and else.
 In order to use `ElseIf` or `Else` you must wrap them in a `ControlFlow` for them to work correctly.
 
-```jsx
+```tsx
 import { ControlFlow, If, ElseIf, Else } from '@jerrywithaz/react-conditionals';
 
 const NumberDisplayer = () => (

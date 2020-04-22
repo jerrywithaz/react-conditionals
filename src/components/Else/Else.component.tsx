@@ -15,4 +15,6 @@ const Else: FunctionComponent<ElseProps> = ({
     ); 
 };
 
+Else.displayName = "Else";
+
 export default Else;
