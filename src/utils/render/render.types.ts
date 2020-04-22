@@ -1,3 +1,3 @@
-import { ConditionalElement, ConditionalOptions } from "src/types";
+import { ConditionalElement, ConditionalOptions } from "../../types";
 
-export type RenderProps<Data> = ConditionalElement<Data> & ConditionalOptions<Data>;
+export type RenderProps<Data = any> = ConditionalElement<Data> & ConditionalOptions<Data>;

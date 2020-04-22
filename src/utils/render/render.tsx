@@ -4,7 +4,7 @@ import { RenderProps } from './render.types';
 /**
  * Renders the desired component.
  */
-function render<Data>(props: RenderProps<Data>): JSX.Element | null {
+function render<Data = any>(props: RenderProps<Data>): JSX.Element | null {
 
     if (props.render && props.data !== null && props.data !== undefined) {
         return props.render(props.data as NonNullable<Data>);

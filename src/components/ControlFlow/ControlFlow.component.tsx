@@ -4,7 +4,7 @@ import { getDecisionComponent } from './ControlFlow.utils';
 
 const ControlFlow: FunctionComponent<ControlFlowProps> = ({
     children
-}) => {
+}): JSX.Element => {
 
     const decision = getDecisionComponent(children);
 

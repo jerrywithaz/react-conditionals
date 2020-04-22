@@ -2,7 +2,7 @@ export type ConditionalResult = boolean;
 
 export type ConditionalFunction = () => ConditionalResult;
 
-export type ConditionalOptions<Data> = {
+export type ConditionalOptions<Data = any> = {
     /**
      * A boolean conditional to be used in combination with
      * the `children` prop.
@@ -16,7 +16,7 @@ export type ConditionalOptions<Data> = {
     data?: Data;
 }
 
-export type ConditionalElement<Data> = {
+export type ConditionalElement<Data = any> = {
     /**
      * React Children to be rendered if the `condition`
      * prop is true.

@@ -1,3 +1,3 @@
 import { IfProps } from "../If";
 
-export type ElseIfProps<Data> = IfProps<Data>;
+export type ElseIfProps<Data = any> = IfProps<Data>;

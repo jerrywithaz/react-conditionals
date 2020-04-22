@@ -1,7 +1,7 @@
 import React from 'react';
 import { IfProps } from '../If';
 import invariant from 'invariant';
-import getConditionResult from 'src/utils/getConditionResult';
+import getConditionResult from '../../utils/getConditionResult';
 import { ElseIfProps } from '../ElseIf';
 
 function validateDecisionStructure(
@@ -44,7 +44,7 @@ export function getDecisionComponent(children: React.ReactNode): React.ReactNode
 
             if (childType.displayName === "If" || childType.displayName === "ElseIf") {
 
-                const props = child.props as IfProps<any> | ElseIfProps<any>;
+                const props = child.props as IfProps | ElseIfProps;
 
                 const conditionResult = getConditionResult({
                     data: props.data,
