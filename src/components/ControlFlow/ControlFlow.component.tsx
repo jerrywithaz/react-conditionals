@@ -9,11 +9,11 @@ const ControlFlow: ControlFlowComponent = ({
     children
 }): JSX.Element => {
 
-    const decision = getDecisionComponent(children);
+    const element = getDecisionComponent(children);
 
     return (
         <React.Fragment>
-            {decision}
+            {element}
         </React.Fragment>
     );
     

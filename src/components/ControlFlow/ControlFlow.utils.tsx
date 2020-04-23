@@ -23,12 +23,11 @@ function validateDecisionStructure(
     const isLastChild = index === numberOfChildren - 1;
 
     const firstChildIsNotIfComponent = ifFirstChild ? displayName === "If" : true;
-    const middleChildAreNotElseIfComponents = isMiddleChild ? displayName === "ElseIf" : true;
+    const middleChildIsNotElseIfComponent = isMiddleChild ? displayName === "ElseIf" : true;
     const lastChildShouldBeElseOrElseIfComponent = isLastChild ? displayName === "ElseIf" || displayName === "Else" : true;
     
-    
     invariant(firstChildIsNotIfComponent, "The first child of a `ControlFlow` should be an `If` components.");
-    invariant(middleChildAreNotElseIfComponents, "All middle children of a `ControlFlow` should be `ElseIf` components.");
+    invariant(middleChildIsNotElseIfComponent, "All middle children of a `ControlFlow` should be `ElseIf` components.");
     invariant(lastChildShouldBeElseOrElseIfComponent, "The last child of a `ControlFlow` should be either an `ElseIf` or an `Else`.");
 
 }
@@ -37,12 +36,12 @@ function validateDecisionStructure(
  * Evaluates each control statement component and returns the one that should be rendered.
  * @param children The `React` children to use.
  */
-export function getDecisionComponent(children: React.ReactNode): React.ReactNode {
+export function getDecisionComponent(children: React.ReactNode): React.ReactElement | null {
 
     const numberOfChildren = React.Children.count(children);
 
-    let childToRender: React.ReactNode | null = null;
-    
+    let childToRender: React.ReactElement | null = null;
+
     React.Children.forEach(children, (child, index) => {
 
         if (!React.isValidElement(child)) {
